@@ -1,0 +1,11 @@
+<div class="container">
+  <% check = @task.completed ? "<i class='far fa-check-square'></i>" : "<i class='far fa-square'></i>" %>
+  <div class="row mt-2">
+  <div class="col-sm-8 pull-left"><h1><%= raw check %> <%= @task.title %></h1></div>
+  <div class="col-sm-4 pull-right text-right"><%= link_to(raw("<i class='far fa-edit'></i> Edit this task"), edit_task_path, class: "btn btn-primary btn-lg") %></div>
+  </div>
+  <div class="jumbotron">
+    <%= @task.details %>
+  </div>
+  <%= link_to "Back to the list", tasks_path, class: "btn btn-primary" %>
+</div>

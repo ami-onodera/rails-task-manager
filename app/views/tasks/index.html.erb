@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="mt-2">My Tasks</h1>
+
+  <ul class="list-group">
+    <% @tasks.each do |task| %>
+    <% check = task.completed ? "<i class='far fa-check-square'></i>" : "<i class='far fa-square'></i>" %>
+    <li class="list-group-item">
+      <div class="row mt-2 mb-2">
+        <div class="col-sm-10"><%= raw  check %> <%= link_to task.title, task_path(task) %></div>
+        <div class="col-sm-2 text-right"><%= link_to(raw('<i class="far fa-trash-alt"></i>'), task_path(task), method: :delete, class: 'delete') %></div>
+      </div>
+    </li>
+  </li>
+  <% end %>
+</ul>
+<br>
+<%= link_to(raw("<i class='fas fa-plus'></i> Add a new task"), new_task_path) %>
+</div>
